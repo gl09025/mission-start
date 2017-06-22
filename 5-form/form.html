@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="login">    
+    <form action="get">
+      <div class="submit">
+        <button>提交▲</button>
+      </div>
+      <div class="username">
+        <label for="username">姓名</label> <!--id设置username，点击姓名就是下面的username-->
+        <input type="text" name="username" id="username" placeholder="输入姓名">
+      </div>
+      <div class="password">
+          <label for="password">密码</label>
+        <input type="password" name="password" id="password" placeholder="输入密码">
+      </div>
+      <div class="hobby">
+          <label for="">爱好</label>
+          <input type="checkbox" name="hobby" value="read">读书
+          <input type="checkbox" name="hobby" value="music">听歌
+          <input type="checkbox" name="hobby" value="study">学习
+      </div>
+      <div class="sex">
+          <label for="">性别
+              <input type="radio" name="sex" value="male">男
+              <input type="radio" name="sex" value="female">女
+          </label>
+      </div>
+      <div class="file">
+          <input type="file" name="myfile" accept="image/png">
+      </div>
+      <div class="select">
+          <select name="city" id="">
+              <option value="beijing">北京</option>
+              <option value="shanghai" selected>上海</option>
+              <option value="hangzhou">杭州</option>
+          </select>
+      </div>
+      <div class="textarea">
+          <textarea name="article" id="" cols="30" rows="10"></textarea>
+          <input type="hidden" name="abcd" value="123456">
+          <input type="button" value="button">button
+          <input type="submit">submit
+          <input type="reset">reset
+      </div>
+      <div class="test">
+          <input type="datetime">
+          <input type="date">
+          <input type="datetime-local">
+          <input type="email">
+          <input type="month">
+          <input type="number">
+          <input type="time">
+      </div>
+    </form>
+  </div>
+</body>
+
+</html>

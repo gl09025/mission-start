@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>JS Bin</title>
+    <style>
+        .border {
+            width: 0px;
+            height: 0px;
+            border-top: 40px solid blue;
+            border-right: 40px solid yellow;
+            border-bottom: 40px solid green;
+            border-left: 40px solid red;
+            margin: 20px;
+        }
+
+        .border1 {
+            border-right: 40px solid transparent;
+            border-bottom: 40px solid transparent;
+            border-left: 40px solid transparent;
+        }
+
+        .border2 {
+            border-right: 40px solid transparent;
+            border-bottom: 40px solid transparent;
+            border-top: 40px solid transparent;
+        }
+
+        .border3 {
+            border-left: 40px solid transparent;
+            border-bottom: 40px solid transparent;
+            border-top: 40px solid transparent;
+        }
+
+        .border4 {
+            border-left: 40px solid transparent;
+            border-right: 40px solid transparent;
+            border-top: 40px solid transparent;
+        }
+
+        .border5 {
+            border-top: 40px solid transparent;
+            border-right: 0px solid yellow;
+            border-bottom: 0px solid green;
+            border-left: 40px solid red;
+        }
+
+        .border6 {
+            border-top: 0px solid transparent;
+            border-right: 0px solid yellow;
+            border-bottom: 40px solid green;
+            border-left: 40px solid transparent;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="border"></div>
+    <div class="border border1"></div>
+    <div class="border border2"></div>
+    <div class="border border3"></div>
+    <div class="border border4"></div>
+    <div class="border border5"></div>
+    <div class="border border6"></div>
+</body>
+
+</html>

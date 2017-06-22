@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>JS Bin</title>
+</head>
+<style>
+    .main {
+        width: 600px;
+        margin: 0 auto;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        padding-bottom: 16px;
+    }
+
+    .title {
+        background-color: #009688;
+        padding: 15px 16px;
+        color: #fff;
+    }
+
+    .label-font-color {
+        color: #757575;
+    }
+
+    .form {
+        background-color: #fff;
+    }
+
+    .form-main {
+        margin: 16px;
+
+    }
+
+    .form-main > div {
+        margin-top: 16px;
+    }
+
+    .input-style {
+        border: none;
+        padding: 8px 0;
+        border-bottom: 1px solid #808080;
+        width: 100%;
+    }
+
+    .input-style:focus {
+        outline: none;
+    }
+
+    .clearfloat::after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+
+    .food {
+        float: left;
+        width: 50%;
+        line-height: 1.4;
+
+    }
+
+    .sex {
+        float: left;
+        width: 50%;
+    }
+
+    .submit input[type=submit] {
+        padding: 8px 16px;
+        color: #fff;
+        background-color: #009688;
+        border: 0;
+    }
+
+    .submit input[type=submit]:hover {
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+</style>
+<body>
+<div class="main">
+    <div class="form">
+        <h3 class="title">信息收集表</h3>
+        <form action="post" class="form-main">
+            <div>
+                <label for="username" class="label-font-color">姓名</label>
+
+                <div class="username">
+                    <input type="text" class="input-style" name="username" id="username">
+                </div>
+            </div>
+            <div>
+                <label for="qq" class="label-font-color">QQ</label>
+
+                <div class="qq">
+                    <input type="text" class="input-style" name="qq" id="qq">
+                </div>
+            </div>
+            <div>
+                <label for="textarea" class="label-font-color">要说的话</label>
+
+                <div class="textarea">
+                    <textarea name="" id="textarea" cols="30" rows="10" class="input-style"></textarea>
+                </div>
+            </div>
+            <div class="clearfloat">
+                <div class="food">
+                    <input id="milk" name="drinks" type="checkbox" checked>
+                    <label for="milk" class="label-font-color">Milk</label>
+                    <br>
+                    <input id="sugar" name="drinks" type="checkbox">
+                    <label for="sugar" class="label-font-color">Sugar</label>
+                    <br>
+                    <input id="lemon" name="drinks" type="checkbox">
+                    <label for="lemon" class="label-font-color">Lemon</label>
+                </div>
+
+                <div class="sex">
+                    <input type="radio" name="sex" id="male" checked>
+                    <label for="male" class="label-font-color">Male</label>
+                    <br>
+                    <input type="radio" name="sex" id="female">
+                    <label for="female" class="label-font-color">Female</label>
+                </div>
+            </div>
+            <div class="submit">
+                <input type="submit">
+            </div>
+
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
