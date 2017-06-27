@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="11-3">
+    <title>JS Bin</title>
+    <style>
+        .layout {
+            max-width: 800px;
+            border: 1px solid;
+            margin: 0 auto;
+            display: flex;
+        }
+
+        .layout aside:nth-child(1) {
+            width: 200px;
+            height: 500px;
+            background: red;
+        }
+
+        .layout main {
+            height: 900px;
+            background: yellow;
+            flex-grow: 1;
+        }
+
+        .layout aside:nth-child(3) {
+            width: 200px;
+            height: 500px;
+            background: blue;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="layout">
+        <aside>left</aside>
+        <main>main</main>
+        <aside>right</aside>
+    </div>
+</body>
+
+</html>
