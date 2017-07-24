@@ -143,3 +143,105 @@ setTimeout(function(){
 ```
 while循环会一直执行下去，后面的代码就执行不到了。
 
+## 题目5： 下面这段代码输出？如何输出delayer: 0, delayer:1...（使用闭包来实现）
+
+```
+for(var i=0;i<5;i++){
+	setTimeout(function(){
+         console.log('delayer:' + i );
+	}, 0);
+	console.log(i);
+}
+```
+放在立即执行函数里面
+```
+for(var i=0;i<5;i++){
+    !function (i) {
+	setTimeout(function(){
+         console.log('delayer:' + i );
+	}, 0);
+        
+    }(i)
+	console.log(i);
+}
+```
+
+## 题目6： 如何获取元素的真实宽高
+
+```
+function getStyle(el) { 
+  if(window.getComputedStyle) { 
+    return window.getComputedStyle(el, null); 
+  }else{ 
+    return el.currentStyle; 
+  } 
+} 
+var trueWidth = getStyle(el).width;
+var trueHeight = getStyle(el).height;
+```
+
+## 题目7： URL 如何编码解码？为什么要编码？
+
+JavaScript提供四个URL的编码/解码方法。
+
+1.decodeURI()
+2.decodeURIComponent()
+3.encodeURI()
+4.encodeURIComponent()
+
+区别
+
+encodeURI方法不会对下列字符编码
+
+ASCII字母
+数字
+~!@#$&*()=:/,;?+'
+
+encodeURIComponent方法不会对下列字符编码
+
+ASCII字母
+数字
+~!*()'
+
+所以encodeURIComponent比encodeURI编码的范围更大。
+
+实际例子来说，encodeURIComponent会把 http:// 编码成 http%3A%2F%2F 而encodeURI却不会。
+
+
+ - URL 的编码格式采用的是 ASCII 码，而不是 Unicode，也就是说 URL 中不能包含任何非 ASCII 字符，比如中文（如果客户端浏览器和服务器端浏览器支持的字符集不同，中文可能会造成问题，现在一般默认都使用 UTF-8）。
+ - 使用安全的字符去（没有特殊用途和特殊意义的可打印字符）表示那些不安全的字符。
+ - 有些字符会引起歧义。比如参数中的key=value键值对，当value里含有= & ? 等，就会造成 URL 服务器的解析错误。所以必须将引起歧义的符号进行转义，也就是对其进行编码。
+
+## 题目8： 补全如下函数，判断用户的浏览器类型
+
+```
+var u = navigator.userAgent
+function isAndroid(){
+    if (u.indexOf('Android') > -1 || u.indexOf('Adr') > -1) {
+        return 'Android'
+    } else {
+        return 'Not Android'
+    }
+}
+function isIphone(){
+    if (u.indexOf('iPhone') > -1) {
+        return 'Iphone'
+    } else {
+        return 'Not Iphone'
+    }
+}
+function isIpad(){
+    if (u.indexOf('iPad') > -1) {
+        return 'iPad'
+    } else {
+        return 'Not iPad'
+    }
+}
+function isIOS(){
+    if (!!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)) {
+        return 'IOS'
+    } else {
+        return 'Not IOS'
+    }
+}
+```
