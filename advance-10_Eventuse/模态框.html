@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .clearfix:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .h-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .panel {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        .panel>header {
+            padding: 1px 16px;
+            background-color: #009688;
+            color: #fff;
+        }
+
+        .close {
+            float: right;
+            cursor: pointer;
+            color: inherit;
+            font-weight: bold;
+            margin-top: 16px;
+        }
+
+        .panel main {
+            padding: 16px;
+        }
+
+        .panel footer {
+            padding: 16px 16px;
+            background: #009688;
+            color: #fff;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .panel footer a {
+            float: right;
+            margin-left: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn-modal">点我</button>
+
+    <div class="h-modal">
+        <div class="panel">
+            <header>
+                <span class="close">x</span>
+                <h3>头部</h3>
+            </header>
+            <main>
+                <p>这是内容</p>
+                <p>这是内容</p>
+            </main>
+            <footer class="clearfix">
+                <a class="btn btn-confirm" href="#">确定</a>
+                <a class="btn btn-cancel" href="#">取消</a>
+            </footer>
+        </div>
+    </div>
+    <script>
+        var btn = document.querySelector('#btn-modal'),
+            modal = document.querySelector('.h-modal'),
+            panel = document.querySelector('.h-modal .panel');
+
+//默认阻止事件冒泡，显示模态框
+        btn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            showModal(modal);
+        });
+        panel.addEventListener('click', function (e) {
+            e.stopPropagation();
+            if (hasClass(e.target, 'close') || hasClass(e.target, 'btn-cancel')) {
+                hideModal(modal);
+            }
+        });
+
+        document.body.addEventListener('click', function () {
+            hideModal(modal);
+        });
+
+
+
+        function showModal(modal) {
+            modal.style.display = 'block';
+        }
+        function hideModal(modal) {
+            modal.style.display = 'none';
+        }
+        //正则匹配className
+        function hasClass(ele, cls) {
+            return !!ele.className.match(new RegExp('\\b' + cls + '\\b'));
+        }
+    </script>
+</body>
+
+</html>

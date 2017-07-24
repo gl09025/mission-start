@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{margin: 0; padding:0;}
+        li {list-style: none;}
+        ul {display: flex;}
+        .tabs {padding: 16px;padding-bottom: 0;}
+        .tabs li{ padding: 16px; background-color: #fff;}
+        .tabs .active { border: 1px solid;border-bottom: none; background-color: #eee;}
+        .content {padding: 18px; padding-top: 0; background-color: #eee;}
+        .content li { display: none; }
+        .content .active {display: block;}
+        .wrap {border: 1px solid;}
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <ul class="tabs">
+            <li data-tab="tab1" class="active">tab1</li>
+            <li data-tab="tab2">tab2</li>
+            <li data-tab="tab3">tab3</li>
+        </ul>
+        <ul class="content">
+            <li data-content="content1" class="active">内容1</li>
+            <li data-content="content2">内容2</li>
+            <li data-content="content3">内容3</li>
+        </ul>
+    </div>
+
+
+    <script>
+	var tabHeader = document.querySelector('.tabs');
+	var tabLis = document.querySelectorAll('.tabs>li');
+	var tabPanels = document.querySelectorAll('.content>li');
+
+	tabHeader.addEventListener('click', function(e){
+		var clickNode = e.target;
+		if(clickNode.tagName.toLowerCase() === 'li'){
+            //移除除当前点击节点外的css，添加激活节点的css
+			for(var i=0; i < tabLis.length; i++){
+				tabLis[i].classList.remove('active');
+			}
+			clickNode.classList.add('active');
+            //返回当前点击的索引
+			var index = [].indexOf.call(tabLis, clickNode);
+
+			for(var i=0; i < tabPanels.length; i++){
+				tabPanels[i].classList.remove('active');
+			}
+			tabPanels[index].classList.add('active');
+
+		}
+	})	
+    </script>
+</body>
+
+</html>
