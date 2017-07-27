@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>
+      加载更多
+    </title>
+    <style>
+      ul,li{
+      margin: 0;
+      padding: 0
+    }
+    #ct {
+      margin-left: 100px;
+      width: 500px;
+      height: 500px;
+      overflow: auto;
+    }
+    #ct li{
+      list-style:none;
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-top: 10px;
+      cursor:pointer;
+    }
+    #load-more{
+      display: block;
+      margin: 10px auto;
+      text-align: center;
+      cursor: pointer;
+    }
+    #load-more img{
+      width: 40px;
+      height: 40px;
+    }
+    .btn{
+      position: fixed;
+      top: 20px;
+      left: 10px;
+      display: inline-block;
+      height: 40px;
+      line-height: 40px;
+      width: 80px;
+      border: 1px solid #E27272;
+      border-radius: 3px;
+      text-align: center;
+      text-decoration: none;
+      color: #E27272;
+    }
+    .btn:hover{
+      background: green;
+      color: #fff;
+    }
+      </style>
+  </head>
+  <body>
+    <ul id="ct">
+    </ul>
+    <a id="load-more" class="btn" href="#">
+      加载更多
+    </a>
+  </body>
+
+  <script>
+  
+  var ct = document.querySelector('#ct')
+  var btn = document.querySelector('#load-more')
+
+  var pageIndex = 0  
+  var isDataArrive = true; //设置状态锁初始值为true，表示数据到达。
+
+  btn.addEventListener('click', function(e) {
+      e.preventDefault();
+
+      if (!isDataArrive) {
+          return;          //如果数据没有到达表示正在请求数据，则本次点击无效。
+      }
+
+      var xhr = new XMLHttpRequest();
+
+      xhr.onreadystatechange = function() {
+
+          if (xhr.readyState == '4') {
+              if (xhr.status === 200 || xhr.status === 304) {
+                  var result = JSON.parse(xhr.responseText);
+                  console.log(result);
+                  var fragment = document.createDocumentFragment();
+
+                  for (var i = 0; i < result.length; i++) {
+                      var node = document.createElement('li');
+                      node.innerText = result[i];
+                      fragment.appendChild(node);
+
+                  }
+                  ct.appendChild(fragment);
+                  pageIndex += 5;
+
+              } else {
+                  console.log('出错了');
+
+              }
+              isDataArrive = true;   //若获取到数据，表示数据已经送达，将状态锁设置为true。
+          }
+      }
+
+      xhr.open('get', '/loadMore?index=' + pageIndex + '&length=5', true);
+      xhr.send();
+      isDataArrive = false;   //发送数据之后，将状态锁设置为false
+  })
+      
+    </script>
+</html>
