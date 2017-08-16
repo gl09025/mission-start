@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery Table</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        ul {
+            display: flex;
+        }
+
+        .tabs {
+            padding: 16px;
+            padding-bottom: 0;
+            background-color: #fff;
+        }
+
+        .tabs li {
+            padding: 8px;
+            background-color: #fff;
+        }
+
+        .tabs li:hover {
+            cursor: pointer;
+        }
+
+        .tabs .active {
+            border-bottom: none;
+            background-color: #eee;
+        }
+
+        .panels {
+            height: 200px;
+            position: relative;
+            z-index: -1;
+        }
+        .content {
+            position: absolute;
+            padding-top: 0;
+            height: 200px;
+            align-items: center;
+        }
+
+        .content li {
+            text-align: center;
+            line-height: 200px;
+            height: 200px;
+            width: 500px;
+            color: #3efa00;
+        }
+
+        .content li:nth-child(odd){
+            background-color: #eee;
+        }
+
+        .content li:nth-child(even){
+            background-color: #0033FF;
+        }
+
+        .wrap {
+            border: 1px solid #ddd;
+            width: 500px;
+            margin: 20px auto;
+             overflow: hidden; 
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <ul class="tabs">
+            <li class="active">tab1</li>
+            <li>tab2</li>
+            <li>tab3</li>
+        </ul>
+        <div class="panels">
+            <ul class="content">
+                <li>11111111</li>
+                <li>2222222</li>
+                <li>3333333</li>
+            </ul>
+        </div>
+    </div>
+
+
+    <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $('.tabs>li').on('click', function () {
+            var $this = $(this)
+            var index = $this.index()
+            var scrollWidth = $('.content>li').width()
+            $this.addClass('active').siblings().removeClass('active')
+            $this.parents('.wrap').find('.panels')
+                .animate({left: 0-scrollWidth*index + 'px'},1000)
+        })
+    </script>
+</body>
+
+</html>

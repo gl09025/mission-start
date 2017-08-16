@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery Table</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        ul {
+            display: flex;
+        }
+
+        .tabs {
+            padding: 16px;
+            padding-bottom: 0;
+        }
+
+        .tabs li {
+            padding: 8px;
+            background-color: #fff;
+        }
+
+        .tabs li:hover {
+            cursor: pointer;
+        }
+
+        .tabs .active {
+            border-bottom: none;
+            background-color: #eee;
+        }
+
+        .content {
+            padding: 18px;
+            padding-top: 0;
+            background-color: #eee;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .content li {
+            display: none;
+            text-align: center;
+        }
+
+        .content .active {
+            display: block;
+            color: #3efa00;
+        }
+
+        .wrap {
+            border: 1px solid #ddd;
+            width: 500px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <ul class="tabs">
+            <li class="active">tab1</li>
+            <li>tab2</li>
+            <li>tab3</li>
+        </ul>
+        <ul class="content">
+            <li class="active">11111111</li>
+            <li>2222222</li>
+            <li>3333333</li>
+        </ul>
+    </div>
+
+    
+    <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $('.tabs>li').on('click', function () {
+            var $this = $(this)
+            var index = $this.index()
+            $this.addClass('active').siblings().removeClass('active')
+            $this.parents('.wrap').find('.content>li').eq(index).addClass('active').siblings().removeClass('active')
+        })
+    </script>
+</body>
+
+</html>

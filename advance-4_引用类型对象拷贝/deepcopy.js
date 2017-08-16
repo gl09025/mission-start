@@ -10,7 +10,7 @@ var obj = {
 function deepCopy(obj){
   var newObj = {}
   for (var key in obj){
-      if (obj.hasOwnProperty){
+      if (obj.hasOwnProperty(key)){
         if (typeof obj[key] === 'number' || typeof obj[key] === 'string' || typeof obj[key] === 'boolean'|| obj[key] === null || obj[key] === undefined){
             newObj[key] = obj[key]
         }else {
