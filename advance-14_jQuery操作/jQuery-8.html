@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery导航栏切换-题目8</title>
+    <link rel="stylesheet" href="//cdnjs.cat.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="//cdnjs.cat.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+        * {margin: 0; padding: 0;}
+        li{list-style: none;}
+        a{color: #333;text-decoration: none;}
+        .wrap{
+            margin: 0 auto;
+            margin-top: 100px;
+            width: 800px;
+        }
+
+        .container{}
+        .container > .containerlist {
+            position: relative;
+            background-color: #C21214;
+            width: 200px;
+            color: #ffffff;
+            cursor: pointer;
+        }
+        .containerlist::after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .containerlist > a {
+            display: block;
+            color: #fff;
+            font-size: 14px;
+            margin: 0 10px;
+            padding: 10px;
+            border-bottom: 1px dotted red;
+        }
+        .containerlist > .lasta{
+            border: none;
+        }
+        .fa {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+        .cotainerul{
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 200px;
+            float: left;
+            width: 200px;
+            border: 1px solid gray;
+        }
+        .cotainerul > li {
+            box-sizing: border-box;
+            display: block;
+            float: left;
+            width: 50%;
+            text-align: center;
+            padding: 12px;
+            color: #000033;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <ul class="container">
+            <li class="containerlist">
+                <a href="">珠宝玉器</a><i class="fa fa-angle-right fa-lg" aria-hidden="true" ></i>
+                <ul class="cotainerul">
+                    <li><a href="">翡翠</a></li>
+                    <li><a href="">玉石</a></li>
+                    <li><a href="">宝石</a></li>
+                    <li><a href="">水晶</a></li>
+                    <li><a href="">玛瑙</a></li>
+                    <li><a href="">珍珠</a></li>
+                    <li><a href="">钻石</a></li>
+					<li><a href="">琥珀</a></li>
+					<li><a href="">和田</a></li>
+					<li><a href="">琥珀</a></li>
+                </ul>
+            </li>
+            <li class="containerlist">
+                <a href="">珠宝玉器</a><i class="fa fa-angle-right fa-lg" aria-hidden="true" ></i>
+                <ul class="cotainerul">
+                    <li><a href="">翡翠</a></li>
+                    <li><a href="">玉石</a></li>
+                    <li><a href="">宝石</a></li>
+                    <li><a href="">水晶</a></li>
+                    <li><a href="">玛瑙</a></li>
+                    <li><a href="">珍珠</a></li>
+                </ul>
+            </li>
+            <li class="containerlist">
+                <a href="" class="lasta">珠宝玉器</a><i class="fa fa-angle-right fa-lg" aria-hidden="true" ></i>
+                <ul class="cotainerul">
+                    <li><a href="">翡翠</a></li>
+                    <li><a href="">玉石</a></li>
+                    <li><a href="">宝石</a></li>
+                    <li><a href="">水晶</a></li>
+                    <li><a href="">玛瑙</a></li>
+                    <li><a href="">珍珠</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <script>
+        var $ul = $('.container')
+        var $list = $ul.find('.containerlist')
+        $list.on('mouseenter',function(){
+            var $this = $(this)
+            console.log($this)
+            $this.find('.cotainerul')
+            .css("display", "block")
+        })
+        $list.on('mouseleave',function(){
+            var $this = $(this)
+            $this.find('.cotainerul')
+            .css("display", "none")
+        })
+    </script>
+</body>
+
+</html>
