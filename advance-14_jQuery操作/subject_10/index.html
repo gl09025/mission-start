@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>loadmore</title>
+    <script src="https://cdnjs.cat.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .wrap {
+            width: 600px;
+            margin: 0 auto;
+            font: 12px/150% Arial, Verdana, "\5b8b\4f53";
+        }
+
+        .wrap .content li {
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+        .content .cover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.3);
+            transition: all 0.3s;
+            opacity: 0;
+        }
+
+        .content .cover a {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 1px solid #c81623;
+            color: #c81623;
+            padding: 10px 15px;
+            border-radius: 3px;
+            text-align: center;
+            background: #fff;
+            cursor: pointer;
+        }
+
+        .content .card {
+            width: 170px;
+            margin-bottom: 16px;
+            position: relative;
+            text-align: center;
+            border: 1px solid #ccc;
+        }
+
+        .card .contentFont h3 {
+            height: 36px;
+        }
+
+        .content .card.hover .cover {
+            opacity: 1;
+        }
+
+        .loadMore {
+            padding: 6px;
+            color: #c81623;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <ul class="content">
+            <li>
+                <div class="card">
+                    <div class="cover">
+                        <a class="btn" href="">立即抢购</a>
+                    </div>
+                    <div class="image">
+                        <img src="http://img13.360buyimg.com/N3/jfs/t2461/336/2166939566/101221/3af27699/56c426a5N9b6673f4.jpg" alt="">
+                    </div>
+                    <div class="contentFont">
+                        <h3>藏美千足金和田玉金镇玉路路通吊坠</h3>
+                        <p>￥1800</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="cover">
+                        <a class="btn" href="">立即抢购</a>
+                    </div>
+                    <div class="image">
+                        <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                    </div>
+                    <div class="contentFont">
+                        <h3>藏美千足金和田玉金镇</h3>
+                        <p>￥1800</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="cover">
+                        <a class="btn" href="">立即抢购</a>
+                    </div>
+                    <div class="image">
+                        <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                    </div>
+                    <div class="contentFont">
+                        <h3>藏美千足金和田玉金镇玉路路通吊坠</h3>
+                        <p>￥1800</p>
+                    </div>
+                </div>
+
+            </li>
+            <li>
+                <div class="card">
+                    <div class="cover">
+                        <a class="btn" href="">立即抢购</a>
+                    </div>
+                    <div class="image">
+                        <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                    </div>
+                    <div class="contentFont">
+                        <h3>藏美千足金和田玉金镇玉路路通吊坠</h3>
+                        <p>￥1800</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="cover">
+                        <a class="btn" href="">立即抢购</a>
+                    </div>
+                    <div class="image">
+                        <img src="http://img13.360buyimg.com/N3/jfs/t2461/336/2166939566/101221/3af27699/56c426a5N9b6673f4.jpg" alt="">
+                    </div>
+                    <div class="contentFont">
+                        <h3>藏美千足金和田玉金镇玉路路通吊坠</h3>
+                        <p>￥1800</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="cover">
+                        <a class="btn" href="">立即抢购</a>
+                    </div>
+                    <div class="image">
+                        <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                    </div>
+                    <div class="contentFont">
+                        <h3>藏美千足金和田玉金镇玉路路通吊坠</h3>
+                        <p>￥1800</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+        <button class="loadMore">加载更多</button>
+
+    </div>
+
+
+    <script>
+        var products = [
+            {
+                img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+                name: '珂兰 黄金手 猴哥款',
+                price: '￥405.00'
+            }, {
+                img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+                name: '珂兰 黄金转运珠 猴哥款',
+                price: '￥100.00'
+            }, {
+                img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+                name: '珂兰 黄金手链 3D猴哥款',
+                price: '￥45.00'
+            }
+        ];
+        $('.wrap .content .card').on('mouseenter', function () {
+            var $this = $(this)
+            $this.addClass('hover')
+        })
+
+        $('.wrap .content .card').on('mouseleave', function () {
+            var $this = $(this)
+            $this.removeClass('hover')
+        })
+
+        $('.loadMore').on('click', function () {
+            var htmlContent = ''
+            for (let index = 0; index < products.length; index++) {
+                const imgUrl = products[index].img;
+                const name = products[index].name;
+                const price = products[index].price;
+                console.log(price)
+                
+            var html = ''
+            // html += '<li>'
+            html += '<div class="card">'
+            html += '<div class="cover">'
+            html += '<a class="btn" href="">立即抢购</a>'
+            html += '</div>'
+            html += '<div class="image">'
+            html += '<img src="' + imgUrl + '" alt="">'
+            html += '</div>'
+            html += '<div class="contentFont">'
+            html += '<h3>' + name +'</h3>'
+            html += '<p>' + price + '</p>'
+            html += '</div>'
+            html += '</div>'
+            // html += '</li>'
+            htmlContent += html
+            
+            }
+            
+            var $li = $('<li></li>').append(htmlContent)
+            $('.content').append($li)
+        })
+    </script>
+</body>
+
+</html>
