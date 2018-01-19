@@ -343,3 +343,12 @@ $("p").click(function () {
 ## 题目8
 
 [预览](https://gl09025.github.io/mission-start/advance-14_jQuery%E6%93%8D%E4%BD%9C/jQuery-8.html)
+
+## 题目 9
+[预览](https://gl09025.github.io/mission-start/advance-14_jQuery%E6%93%8D%E4%BD%9C/subject_9/index.html)
+
+## 题目10 
+[预览](https://gl09025.github.io/mission-start/advance-14_jQuery%E6%93%8D%E4%BD%9C/subject_10/index.html)
+
+## 题目10
+[预览](https://gl09025.github.io/mission-start/advance-14_jQuery%E6%93%8D%E4%BD%9C/jquery-table/jquery-left.html)
