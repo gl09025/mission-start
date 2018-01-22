@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cat.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>ajax jQuery</title>
+    <style>
+        .content {
+            border: 1px solid #ccc;
+            margin: 6px 0;
+        }
+
+        .loadMore {
+            height: 30px;
+            width: 90px;
+            padding: 4px;
+            text-align: center;
+            line-height: 30px;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+        }
+
+        .hover {
+            background: #990066;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- http://jrgzuoye.applinzi.com/作业安排/jscode/JS9-jqueryajax/2.php?start=2&len=6 -->
+    <div class="wrap">
+        <div class="content">初始内容1</div>
+        <div class="content">初始内容2</div>
+    </div>
+    <div class="loadMore">加载更多</div>
+    <script>
+      
+
+        var curIndex = 3
+        var len = 3
+        var isLoading = false
+        $('.loadMore').on('click', function(){
+            if ( isLoading ) {
+                return
+            }
+            isLoading = true //设置状态锁，防止用户重复点击
+            $.ajax({
+                url: '/loadMore',
+                method: 'GET',
+                data: {
+                    idx: curIndex,
+                    len: len
+                }
+            }).done(function(ret){
+                isLoading = false
+                console.log(ret)
+                curIndex += len
+                var data = JSON.parse(ret)
+                console.log(data)
+                afterHtml(data)
+            })
+            .fail(function(){
+                console.log(arguments)
+                alert('获取数据失败')
+            })
+        })
+        $('.wrap').on('mouseenter','.content', function () {
+            $(this).addClass('hover')
+        })
+        $('.wrap').on('mouseleave','.content', function () {
+            $(this).removeClass('hover')
+        })
+
+        var afterHtml = function(data){
+            var htmls = ''
+            for (let index = 0; index < data.length; index++) {
+                htmls += '<div class="content"> ajax加载的' + data[index] + '</div>'
+            }
+            $('.content:last').after(htmls)
+        }
+    </script>
+</body>
+
+</html>

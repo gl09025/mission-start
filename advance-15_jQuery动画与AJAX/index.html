@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cat.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <title>ajax-exercise</title>
+    <style>
+        html,body {
+            font-family: sans-serif;
+        }
+
+        a{
+            text-decoration: none;
+            padding: 15px 12px;
+            display: block;
+            border: 1px solid #ccc;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .wrap {
+            margin: 30px auto;
+        }
+
+        .image {
+            float: right;
+            position: relative;
+            width: 33%;
+            margin-left: 20px;
+        }
+
+        .image>img{
+            display: block;
+            width: 100%;
+        }
+
+        .link::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .wrap .title {
+            margin-bottom: 15px;
+            font-size: 17px;
+        }
+
+        .wrap .info .mark {
+            background-color: rgb(225, 34, 34);
+            color: white;
+            height: 10px;
+            line-height: 1;
+            padding: 3px 2px 1px;
+            font-size: 9px;
+            text-align: center;
+        }
+
+        .title .inner-content {
+            font-size: 10px;
+            color: #ccc;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .link {
+            position: relative;
+        }
+
+        .link .info {
+            position: absolute;
+            bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="wrap">
+            <a href="#" class="link">
+                <div class="image">
+                    <img src="//inews.gtimg.com/newsapp_ls/0/2740696210_294195/0" alt="">
+                </div>
+                <div class="title">
+                    <div class="inner-title">人民日报评论员：我国现行宪法是一部好宪法</div>
+                    <div class="inner-content">实践充分证明，我国现行宪法具有显著优势、坚实基础、强大生命力，必须坚决维护、长期坚持、全面贯彻。</div>
+                </div>
+                <div class="info" style="font-size: 11px;">
+                    <em class="mark" style="background-color: rgb(225, 34, 34);">置顶</em>
+                    <span class="from">人民日报</span>
+                </div>
+            </a>
+        </div>
+        <div class="wrap">
+            <a href="#" class="link">
+                <div class="image">
+                    <img src="//inews.gtimg.com/newsapp_ls/0/2740696210_294195/0" alt="">
+                </div>
+                <div class="title">
+                    <div class="inner-title">人民日报评论员：我国现行宪法是一部好宪法</div>
+                </div>
+                <div class="info" style="font-size: 11px;">
+                    <!-- <em class="mark" style="background-color: rgb(225, 34, 34);">置顶</em> -->
+                    <span>人民日报</span>
+                </div>
+            </a>
+        </div>
+        <div class="wrap">
+            <a href="#" class="link">
+                <div class="image">
+                    <img src="//inews.gtimg.com/newsapp_ls/0/2740696210_294195/0" alt="">
+                </div>
+                <div class="title">
+                    <div class="inner-title">人民日报评论员：我国现行宪法是一部好宪法</div>
+                </div>
+                <div class="info" style="font-size: 11px;">
+                    <!-- <em class="mark" style="background-color: rgb(225, 34, 34);">置顶</em> -->
+                    <span>人民日报</span>
+                </div>
+            </a>
+        </div>
+        <div class="wrap">
+            <a href="#" class="link">
+                <div class="image">
+                    <img src="//inews.gtimg.com/newsapp_ls/0/2740696210_294195/0" alt="">
+                </div>
+                <div class="title">
+                    <div class="inner-title">人民日报评论员：我国现行宪法是一部好宪法</div>
+                </div>
+                <div class="info" style="font-size: 11px;">
+                    <!-- <em class="mark" style="background-color: rgb(225, 34, 34);">置顶</em> -->
+                    <span>人民日报</span>
+                </div>
+            </a>
+        </div>
+        <div class="wrap">
+            <a href="#" class="link">
+                <div class="image">
+                    <img src="//inews.gtimg.com/newsapp_ls/0/2740696210_294195/0" alt="">
+                </div>
+                <div class="title">
+                    <div class="inner-title">人民日报评论员：我国现行宪法是一部好宪法</div>
+                </div>
+                <div class="info" style="font-size: 11px;">
+                    <!-- <em class="mark" style="background-color: rgb(225, 34, 34);">置顶</em> -->
+                    <span>人民日报</span>
+                </div>
+            </a>
+        </div>
+        <div class="wrap">
+            <a href="#" class="link">
+                <div class="image">
+                    <img src="//inews.gtimg.com/newsapp_ls/0/2740696210_294195/0" alt="">
+                </div>
+                <div class="title">
+                    <div class="inner-title">人民日报评论员：我国现行宪法是一部好宪法</div>
+                </div>
+                <div class="info" style="font-size: 11px;">
+                    <!-- <em class="mark" style="background-color: rgb(225, 34, 34);">置顶</em> -->
+                    <span>人民日报</span>
+                </div>
+            </a>
+        </div>
+        <div class="wrap">
+            <a href="#" class="link">
+                <div class="image">
+                    <img src="//inews.gtimg.com/newsapp_ls/0/2740696210_294195/0" alt="">
+                </div>
+                <div class="title">
+                    <div class="inner-title">人民日报评论员：我国现行宪法是一部好宪法</div>
+                </div>
+                <div class="info" style="font-size: 11px;">
+                    <!-- <em class="mark" style="background-color: rgb(225, 34, 34);">置顶</em> -->
+                    <span>人民日报</span>
+                </div>
+            </a>
+        </div>
+        <div class="wrap">
+            <a href="#" class="link">
+                <div class="image">
+                    <img src="//inews.gtimg.com/newsapp_ls/0/2740696210_294195/0" alt="">
+                </div>
+                <div class="title">
+                    <div class="inner-title">人民日报评论员：我国现行宪法是一部好宪法</div>
+                </div>
+                <div class="info" style="font-size: 11px;">
+                    <!-- <em class="mark" style="background-color: rgb(225, 34, 34);">置顶</em> -->
+                    <span>人民日报</span>
+                </div>
+            </a>
+        </div>
+        <div class="wrap">
+            <a href="#" class="link">
+                <div class="image">
+                    <img src="//inews.gtimg.com/newsapp_ls/0/2740696210_294195/0" alt="">
+                </div>
+                <div class="title">
+                    <div class="inner-title">人民日报评论员：我国现行宪法是一部好宪法</div>
+                </div>
+                <div class="info" style="font-size: 11px;">
+                    <!-- <em class="mark" style="background-color: rgb(225, 34, 34);">置顶</em> -->
+                    <span>人民日报</span>
+                </div>
+            </a>
+        </div>
+        <div class="wrap">
+            <a href="#" class="link">
+                <div class="image">
+                    <img src="//inews.gtimg.com/newsapp_ls/0/2740696210_294195/0" alt="">
+                </div>
+                <div class="title">
+                    <div class="inner-title">人民日报评论员：我国现行宪法是一部好宪法</div>
+                </div>
+                <div class="info" style="font-size: 11px;">
+                    <!-- <em class="mark" style="background-color: rgb(225, 34, 34);">置顶</em> -->
+                    <span>人民日报</span>
+                </div>
+            </a>
+        </div>
+        <div class="wrap">
+            <a href="#" class="link">
+                <div class="image">
+                    <img src="//inews.gtimg.com/newsapp_ls/0/2740696210_294195/0" alt="">
+                </div>
+                <div class="title">
+                    <div class="inner-title">人民日报评论员：我国现行宪法是一部好宪法</div>
+                </div>
+                <div class="info" style="font-size: 11px;">
+                    <!-- <em class="mark" style="background-color: rgb(225, 34, 34);">置顶</em> -->
+                    <span>人民日报</span>
+                </div>
+            </a>
+        </div>
+        <div class="wrap">
+            <a href="#" class="link">
+                <div class="image">
+                    <img src="//inews.gtimg.com/newsapp_ls/0/2740696210_294195/0" alt="">
+                </div>
+                <div class="title">
+                    <div class="inner-title">人民日报评论员：我国现行宪法是一部好宪法</div>
+                </div>
+                <div class="info" style="font-size: 11px;">
+                    <!-- <em class="mark" style="background-color: rgb(225, 34, 34);">置顶</em> -->
+                    <span>人民日报</span>
+                </div>
+            </a>
+        </div>
+        <div class="wrap">
+            <a href="#" class="link">
+                <div class="image">
+                    <img src="//inews.gtimg.com/newsapp_ls/0/2740696210_294195/0" alt="">
+                </div>
+                <div class="title">
+                    <div class="inner-title">人民日报评论员：我国现行宪法是一部好宪法</div>
+                </div>
+                <div class="info" style="font-size: 11px;">
+                    <!-- <em class="mark" style="background-color: rgb(225, 34, 34);">置顶</em> -->
+                    <span>人民日报</span>
+                </div>
+            </a>
+        </div>
+        <div class="wrap">
+            <a href="#" class="link">
+                <div class="image">
+                    <img src="//inews.gtimg.com/newsapp_ls/0/2740696210_294195/0" alt="">
+                </div>
+                <div class="title">
+                    <div class="inner-title">人民日报评论员：我国现行宪法是一部好宪法</div>
+                </div>
+                <div class="info" style="font-size: 11px;">
+                    <!-- <em class="mark" style="background-color: rgb(225, 34, 34);">置顶</em> -->
+                    <span>人民日报</span>
+                </div>
+            </a>
+        </div>
+        <div class="wrap">
+            <a href="#" class="link">
+                <div class="image">
+                    <img src="//inews.gtimg.com/newsapp_ls/0/2740696210_294195/0" alt="">
+                </div>
+                <div class="title">
+                    <div class="inner-title">人民日报评论员：我国现行宪法是一部好宪法</div>
+                </div>
+                <div class="info" style="font-size: 11px;">
+                    <!-- <em class="mark" style="background-color: rgb(225, 34, 34);">置顶</em> -->
+                    <span>人民日报</span>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        /*
+        [
+            {
+                link
+            }
+        ]
+        */ 
+    </script>
+</body>
+
+</html>

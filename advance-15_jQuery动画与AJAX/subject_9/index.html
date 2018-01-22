@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cat.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>Weather</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            /* width: 162px; */
+            margin: 0 auto;
+            border: 1px solid;
+        }
+
+        .location {
+            height: 25px;
+        }
+
+        .weather {
+            /* height: 190px; */
+            display: flex;
+            align-content: center;
+        }
+
+        .weather .image {
+            height: 160px;
+            width: 160px;
+        }
+
+        .weather .image>img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .temperature {
+            display: flex;
+            align-items: center;
+        }
+        .temperature .nowt {
+            font-size: 60px;
+        }
+        .temperature .nowt sup {
+            margin-left: -10px;
+        }
+
+        .temperatureDescription {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: 10px;
+        }
+        .day .png>img {
+            height: 80px;
+            width: 80px;
+        }
+        .future {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="location"></div>
+        <div class="weather">
+            <div class="image">
+                <img src="" alt="天气图片">
+            </div>
+            <div class="temperature">
+                <div class="nowt">
+                    <sup>o</sup>
+                </div>
+            </div>
+            <div class="temperatureDescription">
+                <div class="nowText"></div>
+                <div class="feelsLike">
+                    <span>体感温度</span>
+                    <sup>o</sup>
+                </div>
+                <div class="quality">
+                    <span>空气</span>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <br><div>未来十天的天气情况</div><br>
+        <div class="future">
+            <div class="day">
+                <div class="weekDay"><span>「今天」</span></div>
+                <div class="png"><img src="" alt="天气图片"></div>
+                <div class="dayText"></div>
+                <div class="dayWind"></div>
+            </div>
+            <div class="day">
+                <div class="weekDay"></div>
+                <div class="png"><img src="" alt="天气图片"></div>
+                <div class="dayText"></div>
+                <div class="dayWind"></div>
+            </div>
+            <div class="day">
+                <div class="weekDay"></div>
+                <div class="png"><img src="" alt="天气图片"></div>
+                <div class="dayText"></div>
+                <div class="dayWind"></div>
+            </div>
+            <div class="day">
+                <div class="weekDay"></div>
+                <div class="png"><img src="" alt="天气图片"></div>
+                <div class="dayText"></div>
+                <div class="dayWind"></div>
+            </div>
+            <div class="day">
+                <div class="weekDay"></div>
+                <div class="png"><img src="" alt="天气图片"></div>
+                <div class="dayText"></div>
+                <div class="dayWind"></div>
+            </div>
+            <div class="day">
+                <div class="weekDay"></div>
+                <div class="png"><img src="" alt="天气图片"></div>
+                <div class="dayText"></div>
+                <div class="dayWind"></div>
+            </div>
+            <div class="day">
+                <div class="weekDay"></div>
+                <div class="png"><img src="" alt="天气图片"></div>
+                <div class="dayText"></div>
+                <div class="dayWind"></div>
+            </div>
+            <div class="day">
+                <div class="weekDay"></div>
+                <div class="png"><img src="" alt="天气图片"></div>
+                <div class="dayText"></div>
+                <div class="dayWind"></div>
+            </div>
+            <div class="day">
+                <div class="weekDay"></div>
+                <div class="png"><img src="" alt="天气图片"></div>
+                <div class="dayText"></div>
+                <div class="dayWind"></div>
+            </div>
+            <div class="day">
+                <div class="weekDay"></div>
+                <div class="png"><img src="" alt="天气图片"></div>
+                <div class="dayText"></div>
+                <div class="dayWind"></div>
+            </div>
+              
+        </div>
+    </div>
+    <script>
+        $(function () {
+            var ip = 0
+            var url = ''
+            var cityid = 'none'
+            var $image = $('.image>img')
+            var $weather = $('.weather')
+            var $location = $('.location')
+            var $nowText = $('.nowText')
+            var $feelsLike = $('.feelsLike')
+            var $quality = $('.quality')
+            var $temperature = $('.temperature')
+            var $futrue = $('.future')
+            //获取ip
+            $.ajax({
+                url: '//weixin.jirengu.com/weather/ip',
+                method: 'GET'
+            }).done(function (data) {
+                console.log(data.data)
+                ip = data.data
+                //通过ip获取位置
+                $.ajax({
+                    url: '//weixin.jirengu.com/weather/cityid?location=' + ip,
+                    method: 'GET'
+                }).done(function (data) {
+                    console.log(data)
+                    cityId = data.results[0].id
+                    cityName = data.results[0].name
+                    $location.append(cityName)
+                    //获取IP所在位置的天气情况
+                    $.ajax({
+                        url: '//weixin.jirengu.com/weather/now?cityid=' + cityId,
+                        method: 'GET'
+                    }).done(function (data) {
+                        console.log(data)
+                        var codeImg = `//weixin.jirengu.com/images/weather/code/${data.weather[0].now.code}.png`
+                        var futureData = data.weather[0].future
+                        // var suggestionImg = `//weixin.jirengu.com/images/weather/suggestion/${data.weather[0].today.suggestion.dressing}.png`
+                        $image.attr('src', codeImg)
+                        $temperature.children('.nowt').prepend(data.weather[0].now.temperature)
+                        $nowText.append(data.weather[0].now.text)
+                        $feelsLike.children('span').append(data.weather[0].now.feels_like)
+                        $quality.append(data.weather[0].now.air_quality.city.quality)
+
+                        $futrue.children('.day').each(function(index,value){
+                            var $this = $(this)
+                            var weekDay = data.weather[0].future[index].day
+                            var imgUrl = `//weixin.jirengu.com/images/weather/code/${data.weather[0].future[index].code1}.png`
+                            var dayText = data.weather[0].future[index].text
+                            var dayWind = data.weather[0].future[index].wind
+                            var $value = $(value)
+                            $value.children('.weekDay').append(weekDay)
+                            $value.find('.png>img').attr('src',imgUrl)
+                            $value.children('.dayText').append(dayText)
+                            $value.children('.dayWind').append(dayWind)
+                        })
+                    })
+
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>

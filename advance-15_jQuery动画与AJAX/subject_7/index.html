@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery_exercise</title>
+    <script src="https://cdnjs.cat.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+        html {
+            height: 3000px;
+        }
+
+        .wrap {
+            width: 800px;
+            margin: 0 auto;
+        }
+        .btn {
+            width: 100px;
+            height: 50px;
+            border: 1px solid;
+            /* background-color: white; */
+        }
+
+        .fix {
+            position: fixed;
+            top: 50px;
+            left: 32px;
+            border: 1px dashed #ccc;
+        }
+
+        .scrollHeight {
+            color:#003399;
+        }
+
+        .subject3 {
+            width: 200px;
+            height: 100px;
+            border: 1px solid;
+        }
+
+        .exercise {
+            margin-top: 20px;
+        }
+
+        .selectText {
+            margin-left: 66px;
+        }
+        #mySelect {
+            width: 60px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="exercise text">
+            当点击$btn 时，让 $btn 的背景色变为红色再变为蓝色
+            <div class="btn"></div>
+        </div>
+        <hr>
+        <div class="exercise text subject3">当鼠标放置到$div 上，把$div 背景色改为红色，移出鼠标背景色变为白色</div>
+        <hr>
+        <div class="exercise">
+            当鼠标激活 input 输入框时让输入框边框变为蓝色，当输入框内容改变时把输入框里的文字小写变为大写，当输入框失去焦点时去掉边框蓝色，控制台展示输入框里的文字
+            <input type="text" class="input">
+        </div>
+        <hr>
+        <div class="exercise">
+            <select name="" id="mySelect">
+                <option value="选项1">选项1</option>
+                <option value="选项2">选项2</option>
+                <option value="选项3">选项3</option>
+            </select>
+            当选择 select 后，获取用户选择的内容
+            <br> <span>选中内容展示：</span>     <div class="selectText"></div>
+        </div>
+    </div>
+
+    <div class="fix">
+        当窗口滚动时，获取垂直滚动距离 <br>
+        <em class="scrollHeight">opx</em>
+    </div>
+
+    <script>
+      //当点击$btn 时，让 $btn 的背景色变为红色再变为蓝色
+      var $btn = $('.btn')
+      $btn.on('click',function(){
+      $btn.css(
+          'background' , 'red'
+      )
+      setTimeout(() => {
+        $btn.css(
+          'background' , 'blue'
+      )
+      }, 900);
+      })
+      //当窗口滚动时，获取垂直滚动距离
+      $(window).on('scroll',function(){
+        var $scrollTop = $(window).scrollTop()
+        $('.scrollHeight').text($scrollTop + 'px')
+      })
+      //当鼠标放置到$div 上，把$div 背景色改为红色，移出鼠标背景色变为白色
+      $('.subject3').on('mouseenter',function(){
+          $(this).css('background','red')
+      })
+      $('.subject3').on('mouseleave',function(){
+          $(this).css('background','white')
+      })
+      //当鼠标激活 input 输入框时让输入框边框变为蓝色，当输入框内容改变时把输入框里的文字小写变为大写，当输入框失去焦点时去掉边框蓝色，控制台展示输入框里的文字
+      $('.input').on('focusin',function(){
+          $(this).css('outline-color','#00CC66')
+      })
+      $('.input').on('keyup',function(){
+          $(this).val(function(index,value){
+              return value.toUpperCase()
+          })
+      })
+      $('.input').on('blur',function(){
+          if ($(this).val() !== ''){
+            console.log($(this).val())
+          }
+      })
+      //当选择 select 后，获取用户选择的内容
+      $('#mySelect').on('change',function(){
+          $('.selectText').text($(this).val())
+      })
+      $(function(){
+        $('.selectText').text($('#mySelect').val())
+      })
+    </script>
+</body>
+</html>
