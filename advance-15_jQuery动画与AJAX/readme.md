@@ -434,5 +434,24 @@ $('.list').each(function(){
   - 当鼠标激活 input 输入框时让输入框边框变为蓝色，当输入框内容改变时把输入框里的文字小写变为大写，当输入框失去焦点时去掉边框蓝色，控制台展示输入框里的文字
   - 当选择 select 后，获取用户选择的内容
 
+  [预览](https://gl09025.github.io/mission-start/advance-15_jQuery%E5%8A%A8%E7%94%BB%E4%B8%8EAJAX/subject_7/index.html)
+
 ## 题目8： 用 jQuery ajax 实现如下效果。`当点击加载更多会加载数据展示到页面[效果预览](http://jrgzuoye.applinzi.com/%E4%BD%9C%E4%B8%9A%E5%AE%89%E6%8E%92/jscode/JS9-jqueryajax/1.html)
 
+本地mock数据成功
+[代码](https://github.com/gl09025/mission-start/tree/master/advance-15_jQuery%E5%8A%A8%E7%94%BB%E4%B8%8EAJAX/subject_8)
+
+
+## 题目9(选做)： 实现一个天气预报页面，UI 如下图所示(仅供参考，可自由发挥)。数据接口：
+
+获取天气
+接口：http(s)://weixin.jirengu.com/weather
+服务端支持 CORS 跨域调用，前端可直接使用 ajax 获取数据，返回数据以及使用方式参考 http://api.jirengu.com
+更多接口
+参考 http://api.jirengu.com
+
+![](https://jscode.me/uploads/default/optimized/2X/2/2e655f75f6b0e5b18d0ffd3ce1f780b03be21297_1_690x492.jpg)
+
+练习使用ajax，css部分等有时间完成
+
+[预览](https://gl09025.github.io/mission-start/advance-15_jQuery%E5%8A%A8%E7%94%BB%E4%B8%8EAJAX/subject_9/index.html)
