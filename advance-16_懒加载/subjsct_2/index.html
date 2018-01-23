@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cat.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+        .place {
+            height: 1000px;
+            border: 1px solid;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="place"></div>
+    <div class="node">我在这里</div>
+    <div class="place"></div>
+
+    <script>
+        function isVisible($node) {
+            var scrollTop = $(window).scrollTop()
+            var windowHeight = $(window).height()
+            var offsetTop = $node.offset().top
+            if (offsetTop > scrollTop && offsetTop < (scrollTop + windowHeight)) {
+                return true
+            }
+            return false
+        }
+        var clock
+        $(window).on('scroll', function () {
+            if (clock) {
+                clearTimeout(clock)
+            }
+            clock = setTimeout(function () {
+                console.log(isVisible($('.node')))
+            }, 500)
+        })
+    </script>
+</body>
+
+</html>

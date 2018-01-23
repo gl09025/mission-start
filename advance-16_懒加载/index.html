@@ -5,54 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdnjs.cat.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <title>懒加载</title>
+    <title>懒加载-图片</title>
     <style>
         .container {
-            width: 710px;
+            width: 610px;
         }
         img {
-            width: 350px;
-            height: 150px;
+            width: 300px;
+            height: 200px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqgnhu3brj304y05iaaa.jpg">
-        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqhw8b5yej30yq0hdaae.jpg">
-        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqhkpe7x7j304v06s0sr.jpg">
-        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqhje1nwlj307c0araab.jpg">
-        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqhiajtnvj307d0axdg0.jpg">
-        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqhh33frwj307f0ax74k.jpg">
-        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqhd7zf8yj307g0ah0t1.jpg">
-        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqg1dg9egj30dw07maa4.jpg">
-        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqfqo1uzjj30di0a53z1.jpg">
-        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqfhujxrtj30p70jqt96.jpg">
-        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqfhuec9sj30pa0jn74n.jpg">
-        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqfhuedofj30pa0jnabd.jpg">
-        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqfhub3utj30p70jq3yj.jpg">
-        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqfdwlscwj306g08l3yj.jpg">
-        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqfcb70lkj30nw0g3dha.jpg">
-        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqfcb753jj30nw0g440e.jpg">
-        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqeqq2lxuj306e06e3yc.jpg">
-        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqeq3mdf7j306e06eq2u.jpg">
-        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqeoy1txmj306e06emx3.jpg">
-        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqcb5tw2jj304v06s0sr.jpg">
-        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqddl95uqj30es0f3dgv.jpg">
-        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqdcql3ztg30t50hdqmi.gif">
-        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqcpnxmz5j30lu0bc754.jpg">
-        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqbigho5ej30m7163n3m.jpg">
-        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqbi9o7vpj30m70xatf3.jpg">
-        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqbhpcjoaj30m70tln36.jpg">
-        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqbho922ij30m70w5e81.jpg">
-        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqbhn259ej30m70skai3.jpg">
-        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqbi08ixkj30m70x9afm.jpg">
-        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqbi8in44j30m70xatcw.jpg">
+        <img src="http://via.placeholder.com/300x200" alt="" data-src="http://temp.im/300x200/000000/fff">
+        <img src="http://via.placeholder.com/300x200" alt="" data-src="http://temp.im/300x200/000033/fff">
+        <img src="http://via.placeholder.com/300x200" alt="" data-src="http://temp.im/300x200/000066/fff">
+        <img src="http://via.placeholder.com/300x200" alt="" data-src="http://temp.im/300x200/000099/fff">
+        <img src="http://via.placeholder.com/300x200" alt="" data-src="http://temp.im/300x200/0000CC/fff">
+        <img src="http://via.placeholder.com/300x200" alt="" data-src="http://temp.im/300x200/0000FF/fff">
+        <img src="http://via.placeholder.com/300x200" alt="" data-src="http://temp.im/300x200/003300/fff">
+        <img src="http://via.placeholder.com/300x200" alt="" data-src="http://temp.im/300x200/003333/fff">
+        <img src="http://via.placeholder.com/300x200" alt="" data-src="http://temp.im/300x200/003366/fff">
+        <img src="http://via.placeholder.com/300x200" alt="" data-src="http://temp.im/300x200/003399/fff">
+        <img src="http://via.placeholder.com/300x200" alt="" data-src="http://temp.im/300x200/0033CC/fff">
+        <img src="http://via.placeholder.com/300x200" alt="" data-src="http://temp.im/300x200/0033FF/fff">
+        <img src="http://via.placeholder.com/300x200" alt="" data-src="http://temp.im/300x200/006600/fff">
+        <img src="http://via.placeholder.com/300x200" alt="" data-src="http://temp.im/300x200/006633/fff">
+        <img src="http://via.placeholder.com/300x200" alt="" data-src="http://temp.im/300x200/006666/fff">
+        <img src="http://via.placeholder.com/300x200" alt="" data-src="http://temp.im/300x200/006699/fff">
+        <img src="http://via.placeholder.com/300x200" alt="" data-src="http://temp.im/300x200/0066CC/fff">
+        <img src="http://via.placeholder.com/300x200" alt="" data-src="http://temp.im/300x200/0066FF/fff">
+        <img src="http://via.placeholder.com/300x200" alt="" data-src="http://temp.im/300x200/009900/fff">
+        <img src="http://via.placeholder.com/300x200" alt="" data-src="http://temp.im/300x200/009933/fff">
+        <img src="http://via.placeholder.com/300x200" alt="" data-src="http://temp.im/300x200/009966/fff">
+        <img src="http://via.placeholder.com/300x200" alt="" data-src="http://temp.im/300x200/009999/fff">
+        <img src="http://via.placeholder.com/300x200" alt="" data-src="http://temp.im/300x200/0099CC/fff">
+        <img src="http://via.placeholder.com/300x200" alt="" data-src="http://temp.im/300x200/0099FF/fff">
+        <img src="http://via.placeholder.com/300x200" alt="" data-src="http://temp.im/300x200/00CC00/fff">
+        <img src="http://via.placeholder.com/300x200" alt="" data-src="http://temp.im/300x200/00CC33/fff">
+        <img src="http://via.placeholder.com/300x200" alt="" data-src="http://temp.im/300x200/00CC66/fff">
+        <img src="http://via.placeholder.com/300x200" alt="" data-src="http://temp.im/300x200/00CC99/fff">
+        <img src="http://via.placeholder.com/300x200" alt="" data-src="http://temp.im/300x200/00CCCC/fff">
+        <img src="http://via.placeholder.com/300x200" alt="" data-src="http://temp.im/300x200/00CCFF/fff">
     </div>
     <script>
+        var clock
         lazyRender()
         $(window).on('scroll',function(){
-            lazyRender()
+            if (clock) {
+                clearTimeout(clock)
+            }
+            clock = setTimeout(() => {
+                lazyRender()
+            }, 500);
         })
 
         function lazyRender (){
