@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cat.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>懒加载</title>
+    <style>
+        .container {
+            width: 710px;
+        }
+        img {
+            width: 350px;
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqgnhu3brj304y05iaaa.jpg">
+        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqhw8b5yej30yq0hdaae.jpg">
+        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqhkpe7x7j304v06s0sr.jpg">
+        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqhje1nwlj307c0araab.jpg">
+        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqhiajtnvj307d0axdg0.jpg">
+        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqhh33frwj307f0ax74k.jpg">
+        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqhd7zf8yj307g0ah0t1.jpg">
+        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqg1dg9egj30dw07maa4.jpg">
+        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqfqo1uzjj30di0a53z1.jpg">
+        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqfhujxrtj30p70jqt96.jpg">
+        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqfhuec9sj30pa0jn74n.jpg">
+        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqfhuedofj30pa0jnabd.jpg">
+        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqfhub3utj30p70jq3yj.jpg">
+        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqfdwlscwj306g08l3yj.jpg">
+        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqfcb70lkj30nw0g3dha.jpg">
+        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqfcb753jj30nw0g440e.jpg">
+        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqeqq2lxuj306e06e3yc.jpg">
+        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqeq3mdf7j306e06eq2u.jpg">
+        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqeoy1txmj306e06emx3.jpg">
+        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqcb5tw2jj304v06s0sr.jpg">
+        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqddl95uqj30es0f3dgv.jpg">
+        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqdcql3ztg30t50hdqmi.gif">
+        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqcpnxmz5j30lu0bc754.jpg">
+        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqbigho5ej30m7163n3m.jpg">
+        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqbi9o7vpj30m70xatf3.jpg">
+        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqbhpcjoaj30m70tln36.jpg">
+        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqbho922ij30m70w5e81.jpg">
+        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqbhn259ej30m70skai3.jpg">
+        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqbi08ixkj30m70x9afm.jpg">
+        <img src="http://via.placeholder.com/350x150" alt="" data-src="http://ww4.sinaimg.cn/large/005zWjpngy1fnqbi8in44j30m70xatcw.jpg">
+    </div>
+    <script>
+        lazyRender()
+        $(window).on('scroll',function(){
+            lazyRender()
+        })
+
+        function lazyRender (){
+            $('.container img').each(function(){
+                if(checkShow($(this)) && !isLoaded($(this))) {
+                    loadImg($(this))
+                }
+            })
+        }
+
+        function checkShow($img){
+            var $scrollTop = $(window).scrollTop()
+            var $windowHeight = $(window).height()
+            var $offSet = $img.offset().top
+            if ($offSet < $scrollTop + $windowHeight && $offSet > $scrollTop) {
+                return true
+            }
+            return false
+        }
+
+        function isLoaded($img) {
+            return $img.attr('data-src') === $img.attr('src')
+        }
+
+        function loadImg($img) {
+            $img.attr('src',$img.attr('data-src'))
+        }
+    </script>
+</body>
+</html>
