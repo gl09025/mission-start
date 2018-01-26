@@ -4,6 +4,8 @@
 
 ## 题目1：如何判断一个元素是否出现在窗口可视范围（浏览器的上边缘和下边缘之间，肉眼可视）。写一个函数 isVisible实现
 
+![元素可视区域图解](https://raw.githubusercontent.com/gl09025/image_respository/master/2018%E5%B9%B401%E6%9C%8823%E6%97%A5/%E5%85%83%E7%B4%A0%E5%8F%AF%E8%A7%86.png)
+
 以下HTML
 
 ```html
@@ -13,8 +15,6 @@
 </body>
 ```
 
-判断元素的位置是否在window的可视区域内
-![元素可视](https://raw.githubusercontent.com/gl09025/image_respository/master/2018%E5%B9%B401%E6%9C%8823%E6%97%A5/%E5%85%83%E7%B4%A0%E5%8F%AF%E8%A7%86.png)
 
 ```javascript
 function isVisible($node) {
