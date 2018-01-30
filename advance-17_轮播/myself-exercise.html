@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cat.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        ul li{list-style: none;}
+        a{text-decoration: none;}
+        .carousal {
+            position: relative;
+            width: 450px;
+            height: 350px;
+            overflow: hidden;
+
+        }
+        .img-ct {
+            width: 1800px;
+            position: absolute;
+        }
+        .img-ct::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .img-ct li {
+            float: left;
+            width: 450px;
+        }
+        .arrow {
+            position: absolute;
+            height: 44px;
+            width: 44px;
+            top: 50%;
+            margin-top: -22px;
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 44px;
+        }
+        a:hover {
+            cursor: pointer;
+        }
+        .pre {
+            left: 10px;
+        }
+        .next {
+            right: 10px;
+        }
+        .bullet {
+            position: absolute;
+            bottom: 10px;
+            height: 44px;
+            width: 450px;
+            line-height: 44px;
+            text-align: center;
+        }
+        .bullet li {
+            display: inline-block;
+            border-radius: 50%;
+            height: 20px;
+            width: 20px;
+            border: 1px solid #ccc;
+        }
+        .active {
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="carousal">
+        <ul class="img-ct">
+            <li data-id="0"><a href=""><img src="https://picsum.photos/450/350/?image=0" alt=""></a></li>
+            <li data-id="1"><a href=""><img src="https://picsum.photos/450/350/?image=1084" alt=""></a></li>
+            <li data-id="2"><a href=""><img src="https://picsum.photos/450/350/?image=1082" alt=""></a></li>
+            <li data-id="3"><a href=""><img src="https://picsum.photos/450/350/?image=1080" alt=""></a></li>
+        </ul>
+        <a class="next arrow">></a>
+        <a class="pre arrow"><</a>
+        <ul class="bullet">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+    <script>
+        var $imgCt = $('.carousal .img-ct')
+        var $imgs = $('.carousal .img-ct li')
+        var $firstImg = $imgs.first()
+        var $lastImg = $imgs.last()
+        var $imgsLength = $imgs.length
+        var $imgWidth = $firstImg.width()
+        var $imgsWidth = ($imgsLength + 2) * ($imgWidth)
+        var $next = $('.next')
+        var $pre = $('.pre')
+        var currentIndex = 0
+        var isAnimate = false
+        var $bullet = $('.bullet')
+
+        $imgCt.append($firstImg.clone())
+        $imgCt.prepend($lastImg.clone())
+        $imgCt.css('width',$imgsWidth)
+
+        $imgCt.css('left',-$imgWidth + 'px')
+
+        $next.on('click',function(){
+            playNext((currentIndex + 1)%$imgsLength)
+        })
+        $pre.on('click',function(){
+            playPre(($imgsLength + currentIndex - 1)%$imgsLength)
+        })
+
+
+
+        function playNext(index) {
+            if (isAnimate) {return}
+            isAnimate = true
+            $imgCt.animate({
+                'left':-($imgWidth * (index + 1)) + 'px'
+            },function () {
+                if (currentIndex === $imgsLength - 2) {
+                    $imgCt.css('left','0px')
+                }
+                currentIndex = index
+                isAnimate = false
+                setBullet()
+            })
+        }
+
+        function playPre(index) {
+            if (isAnimate) {return}
+            isAnimate = true
+            //第一张图片跳转处理
+            if (index === $imgsLength - 1) {
+                $imgCt.animate({
+                    left: '0px'
+                },function(){
+                    $imgCt.css('left',-$imgWidth * $imgsLength + 'px')
+                    currentIndex = index
+                    isAnimate = false
+                    setBullet()
+                })
+            }
+            $imgCt.animate({
+                'left': -$imgWidth * (index + 1) + 'px'
+            },function () {
+                currentIndex = index
+                isAnimate = false
+                setBullet()
+            })
+        }
+
+        function setBullet() {
+            $bullet.children().removeClass('active').eq(currentIndex).addClass('active')
+        }
+    </script>
+</body>
+</html>

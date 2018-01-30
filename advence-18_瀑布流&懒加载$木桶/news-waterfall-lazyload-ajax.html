@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cat.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>懒加载新闻-瀑布流布局</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        li{list-style: none;display: block;}
+        a{text-decoration: none;display: block;}
+        .wrap {
+            width: 1000px;
+            margin: 0 auto;
+        }
+        .new-single {
+            width: 260px;
+        }
+        .img {
+            width: 322px;
+            height: 300px;
+        }
+        .img img {
+            width: 322px;
+            height: 300px;
+        }
+        .title {
+            font-size: 28px;
+            margin: 10px 0;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        .title::after {
+            content: '';
+            display: block;
+            border: 1px solid #ccc;
+        }
+        .content {
+            color: #ccc;
+            padding: 20px;
+        }
+        .news {
+            position: relative;
+        }
+        .news .new-single {
+            padding: 10px;
+            margin: 20px;
+            border: 1px solid #ccc;
+            position: absolute;
+            width: 322px;
+            /* top: 0;
+            left: 0; */
+        }
+        #load {
+            height: 30px;
+            visibility: hidden;
+        }
+        .hide {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <ul class="news">
+           <!-- <li class="new-single">
+                <a href="" class="news-content">
+                    <div class="img"><img src="https://picsum.photos/260/300/?random" alt=""></div>
+                    <div class="title">这里是title这里是title这里是title</div>
+                    <div class="content">这里是新闻内容这里是新闻内容,这里是新闻内容.这里是新闻内容这里是新闻内容</div>
+                </a>
+            </li>
+             <li class="new-single">
+                <a href="" class="news-content">
+                    <div class="img"><img src="https://picsum.photos/260/300/?random" alt=""></div>
+                    <div class="title">这里是title</div>
+                    <div class="content">这里是新闻内容这里是新闻内容,这里是新闻内容.这里是新闻内容这里是新闻内容</div>
+                </a>
+            </li>
+            <li class="new-single">
+                <a href="" class="news-content">
+                    <div class="img"><img src="https://picsum.photos/260/300/?random" alt=""></div>
+                    <div class="title">这里是title</div>
+                    <div class="content">这里是新闻内容这里是新闻内容,这里是新闻内容.这里是新闻内容这里是新闻内容</div>
+                </a>
+            </li> -->
+            <li class="new-single hide"></li>
+        </ul>
+        <div id="load"></div>
+    </div>
+
+    <script>
+        var isDataArrive = true
+        var perPageCount = 10
+        var curPage = 1
+        var itemArr = []
+        var items = parseInt($('.news').outerWidth(true) / $('.new-single').outerWidth(true))
+        for (let i = 0; i < items; i++) {
+            itemArr[i] = 0
+        }
+
+
+        //首次进入加载
+        getAndPlace(itemArr)
+        //滚动加载
+        $(window).on('scroll',function () {
+            if (!isDataArrive) {return}
+            if (isVisible($('#load'))) {
+                console.log('see')
+                getAndPlace()
+            }
+        })
+         
+
+        function getAndPlace() {
+            geteData(function (nodeList) {
+                // console.log(nodeList)
+                isDataArrive = true
+                $.each(nodeList,function (idx,news) {
+                    var $node = getNode(news)
+                    //等图片加载完了再通过瀑布流放到页面上 
+                    $node.find('img').on('load',function () {
+                        $('.news').append($node)
+                        waterFall($node)
+                    })
+                })
+            })
+            isDataArrive = false
+        }
+
+        function geteData(callback) {
+            $.ajax({
+                url: 'http://platform.sina.com.cn/slide/album_tech',
+                method: 'GET',
+                dataType: 'jsonp',
+                jsonp: 'jsoncallback',
+                data: {
+                    app_key: '1271687855',
+                    num: perPageCount,
+                    page: curPage
+                }
+            }).done(function (ret) {
+                if (ret && ret.status && ret.status.code == "0") {
+                    callback(ret.data) //处理数据
+                    curPage ++
+                } else {
+                    console.log('get page data error')
+                }
+            })
+        }
+
+        function getNode(news) {
+            var htmls = ''
+            htmls += '<li class="new-single">'
+            htmls += '    <a href="javascript:void(0)" class="news-content">'
+            htmls += '        <div class="img"><img src="' + news.img_url + '" alt="新闻图片"></div>'
+            htmls += '        <div class="title">' + news.short_name + '</div>'
+            htmls += '        <div class="content">'+ news.short_intro +'</div>'
+            htmls += '    </a>'
+            htmls += '</li>'
+            return $(htmls)
+        }
+
+        function waterFall(node) {
+            // $.each(node,function (index,element) {
+                
+                var minValue = Math.min.apply(null,itemArr)
+                var minIndex = itemArr.indexOf(minValue)
+                $(node).css({
+                    top: minValue + 'px',
+                    left: minIndex * $(node).outerWidth(true) + 'px'
+                })
+                itemArr[minIndex] += $(node).outerHeight(true)
+                $('.news').height(Math.max.apply(null,itemArr))
+            // })
+        }
+
+        function isVisible($node) {
+            var $offsetTop = $node.offset().top
+            var scrollHeight = $(window).scrollTop()
+            var windowHeight = $(window).height()
+            // console.log($offsetTop,scrollHeight,windowHeight)
+            if ($offsetTop > scrollHeight && $offsetTop < (scrollHeight + windowHeight)) {
+                return true
+            } else {
+                return false
+            }
+        }
+    </script>
+</body>
+</html>

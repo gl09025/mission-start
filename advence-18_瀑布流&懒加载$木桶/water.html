@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cat.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>water</title>
+    <style>
+        .items {
+            position: relative;
+        }
+        .item {
+            position: absolute;
+            width: 200px;
+            display: inline-block;
+            color: white;
+            transition: all 1s;
+        }
+        .item-1 {background: #0000CC;height: 50px;}
+        .item-2 {background: #0000FF; height: 70px;}
+        .item-3 {background: #003300; height: 80px}
+        .item-4 {background: #003366; height: 150px}
+        .item-5 {background: #0033CC; height: 40px}
+        .item-6 {background: #009966; height: 50px}
+        .item-7 {background: #009933; height: 200px}
+        .item-8 {background: #009999; height: 70px}
+        .item-9 {background: #0099FF; height: 80px}
+        .item-10 {background: #00CCCC; height: 90px;}
+        .item-11 {background: #00CC66; height: 100px;}
+        .item-12 {background: #00CC33; height: 110px;}
+    </style>
+</head>
+<body>
+    <div class="items">
+        <div class="item item-1">1</div>
+        <div class="item item-2">2</div>
+        <div class="item item-3">3</div>
+        <div class="item item-4">4</div>
+        <div class="item item-5">5</div>
+        <div class="item item-6">6</div>
+        <div class="item item-7">7</div>
+        <div class="item item-8">8</div>
+        <div class="item item-9">9</div>
+        <div class="item item-10">10</div>
+        <div class="item item-11">11</div>
+        <div class="item item-12">12</div>
+    </div>
+
+    <script>
+        // waterfull()
+
+        // $(window).on('resize',function () {
+        //     waterfull()
+        // })
+
+        // function waterfull() {
+        //     var colLength = parseInt($('.items').width() / $('.item').width())
+        //     var itemArr = []
+        //     for (let i = 0; i < colLength; i++) {
+        //         itemArr[i] = 0
+        //     }
+
+        //     $('.item').each(function () {
+        //         var minValue = Math.min.apply(null,itemArr)
+        //         var minIndex = itemArr.indexOf(minValue)
+        //         $(this).css({
+        //             top: itemArr[minIndex] + 'px',
+        //             left: $(this).outerWidth(true) * minIndex + 'px'
+        //         })
+        //         itemArr[minIndex] += $(this).outerHeight(true)            
+        //     })
+            
+        // }
+
+
+        var WaterFull = (function () {
+            function init() {
+                waterfull()
+                $(window).on('resize',function () {
+                    waterfull()
+                })
+            }
+
+
+            function waterfull() {
+                var colLength = parseInt($('.items').width() / $('.item').width())
+                var itemArr = []
+                for (let i = 0; i < colLength; i++) {
+                    itemArr[i] = 0
+                }
+
+                $('.item').each(function () {
+                    var minValue = Math.min.apply(null,itemArr)
+                    var minIndex = itemArr.indexOf(minValue)
+                    $(this).css({
+                        top: itemArr[minIndex] + 'px',
+                        left: $(this).outerWidth(true) * minIndex + 'px'
+                    })
+                    itemArr[minIndex] += $(this).outerHeight(true)            
+                })
+            }
+            return {
+                init: init
+            }
+        })()
+
+        WaterFull.init()
+    </script>
+</body>
+</html>

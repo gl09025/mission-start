@@ -13,4 +13,8 @@
 
 ## 题目2： 实现视频中的左右滚动无限循环轮播效果
 
+[预览](https://gl09025.github.io/mission-start/advance-17_%E8%BD%AE%E6%92%AD/index.html)
+
 ## 题目3： 实现一个渐变轮播效果, [效果范例](http://book.jirengu.com/jirengu-inc/js-works/carousel/carousel-fade-jquery.html#)
+
+[预览](https://gl09025.github.io/mission-start/advance-17_%E8%BD%AE%E6%92%AD/shadow.html)
