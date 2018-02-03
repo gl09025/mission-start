@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>木桶布局墙</title>
+    <style>
+        .image-preview {
+            width: 1000px;
+            margin: 0 auto;
+        }
+        .image-row {
+            margin-bottom: 10px;
+        }
+        .image-row::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .image-box {
+            float: left;
+
+        }
+        .load-more {
+            opacity: 0;
+            height: 1px;
+            width: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div class="image-preview"></div>
+    <script src="./main.js"></script>
+</body>
+</html>

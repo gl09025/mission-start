@@ -103,13 +103,5 @@ Car.prototype = {
 3. `bindEvent` 方法， 用于绑定事件
 4. `createNode` 方法， 用于在容器内创建节点
 
-```javascript
-function GoTop(name){
-  this.name = name
-  var createDocument = document.creat
-}
 
-GoTop.prototype = {
-    ct: this
-}
-```
+## 问题7： 使用木桶布局实现一个图片墙
