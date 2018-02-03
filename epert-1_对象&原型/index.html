@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .top {
+            position: fixed;
+            bottom: 100px;
+            right: 100px;
+            width: 100px;
+            height: 100px;
+            border: 1px solid #ccc;
+            line-height: 100px;
+            text-align: center;
+            background: green;
+        }
+        body {
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <code>function GoTop() { <br>
+            &nbsp;//创建元素 <br>
+            &nbsp;&nbsp;var newNode = document.createElement('div') <br>
+            &nbsp;&nbsp;newNode.setAttribute('class','top') <br>
+            &nbsp;&nbsp;newNode.textContent = "回到顶部" <br>
+            &nbsp;&nbsp;//赋值当前的元素，获取父元素 <br>
+            &nbsp;&nbsp;this.target = newNode <br>
+            &nbsp;&nbsp;this.ct = newNode.parentElement || 'body' <br>
+        } <br>
+        
+        GoTop.prototype = { <br>
+            &nbsp;&nbsp;createNode: function () { <br>
+                &nbsp;&nbsp;document.body.appendChild(this.target) <br>
+            &nbsp;&nbsp;}, <br>
+            &nbsp;&nbsp;bindEvent: function(){ <br>
+               &nbsp;&nbsp; var topNode = document.querySelector('.top') <br>
+                &nbsp;&nbsp;topNode.addEventListener('click',function (e) { <br>
+                   &nbsp;&nbsp; console.log(e) <br>
+                    //获取滚动条距离 <br>
+                   &nbsp;&nbsp; var scrollHeight = window.pageYOffset <br>
+                    //滚动条有距离就直接设置滚动条的y轴偏移滚动的距离 <br>
+                   &nbsp;&nbsp; if (!(scrollHeight > 0)) {return} <br>
+                   &nbsp;&nbsp; window.scrollBy(0,-scrollHeight) <br>
+                &nbsp;&nbsp;}) <br>
+            &nbsp;&nbsp;} <br>
+        } <br>
+        
+        var topNode = new GoTop() <br>
+        topNode.createNode() <br>
+        topNode.bindEvent() <br> <br></code>
+    <div>测试测试测试1</div>
+    <div>测试测试测试2</div>
+    <div>测试测试测试3</div>
+    <div>测试测试测试4</div>
+    <div>测试测试测试5</div>
+    <div>测试测试测试6</div>
+    <div>测试测试测试7</div>
+    <div>测试测试测试8</div>
+    <div>测试测试测试9</div>
+    <div>测试测试测试10</div>
+    <div>测试测试测试11</div>
+    <div>测试测试测试12</div>
+    <div>测试测试测试13</div>
+    <div>测试测试测试14</div>
+    <div>测试测试测试15</div>
+    <div>测试测试测试16</div>
+    <div>测试测试测试17</div>
+    <div>测试测试测试18</div>
+    <div>测试测试测试19</div>
+    <div>测试测试测试20</div>
+    <div>测试测试测试21</div>
+    <div>测试测试测试22</div>
+    <div>测试测试测试23</div>
+    <div>测试测试测试24</div>
+    <div>测试测试测试25</div>
+    <div>测试测试测试26</div>
+    <div>测试测试测试27</div>
+    <div>测试测试测试28</div>
+    <div>测试测试测试29</div>
+    <div>测试测试测试30</div>
+    <div>测试测试测试31</div>
+    <div>测试测试测试32</div>
+    <div>测试测试测试33</div>
+    <div>测试测试测试34</div>
+    <div>测试测试测试35</div>
+    <div>测试测试测试36</div>
+    <div>测试测试测试37</div>
+    <div>测试测试测试38</div>
+    <div>测试测试测试39</div>
+    <div>测试测试测试40</div>
+    <div>测试测试测试41</div>
+    <div>测试测试测试42</div>
+    <div>测试测试测试43</div>
+    <div>测试测试测试44</div>
+    <div>测试测试测试45</div>
+    <div>测试测试测试46</div>
+    <div>测试测试测试47</div>
+    <div>测试测试测试48</div>
+    <div>测试测试测试49</div>
+    <div>测试测试测试50</div>
+    <div>测试测试测试51</div>
+    <div>测试测试测试52</div>
+    <div>测试测试测试53</div>
+    <div>测试测试测试54</div>
+    <div>测试测试测试55</div>
+    <div>测试测试测试56</div>
+    <div>测试测试测试57</div>
+    <div>测试测试测试58</div>
+    <div>测试测试测试59</div>
+    <div>测试测试测试60</div>
+    <div>测试测试测试61</div>
+    <div>测试测试测试62</div>
+    <div>测试测试测试63</div>
+    <div>测试测试测试64</div>
+    <div>测试测试测试65</div>
+    <div>测试测试测试66</div>
+    <div>测试测试测试67</div>
+    <div>测试测试测试68</div>
+    <div>测试测试测试69</div>
+    <div>测试测试测试70</div>
+    <div>测试测试测试71</div>
+    <div>测试测试测试72</div>
+    <div>测试测试测试73</div>
+    <div>测试测试测试74</div>
+    <div>测试测试测试75</div>
+    <div>测试测试测试76</div>
+    <div>测试测试测试77</div>
+    <div>测试测试测试78</div>
+    <div>测试测试测试79</div>
+    <div>测试测试测试80</div>
+    <div>测试测试测试81</div>
+    <div>测试测试测试82</div>
+    <div>测试测试测试83</div>
+    <div>测试测试测试84</div>
+    <div>测试测试测试85</div>
+    <div>测试测试测试86</div>
+    <div>测试测试测试87</div>
+    <div>测试测试测试88</div>
+    <div>测试测试测试89</div>
+    <div>测试测试测试90</div>
+    <div>测试测试测试91</div>
+    <div>测试测试测试92</div>
+    <div>测试测试测试93</div>
+    <div>测试测试测试94</div>
+    <div>测试测试测试95</div>
+    <div>测试测试测试96</div>
+    <div>测试测试测试97</div>
+    <div>测试测试测试98</div>
+    <div>测试测试测试99</div>
+    <div>测试测试测试100</div>       
+    <script src="./main.js"></script>
+</body>
+</html>
