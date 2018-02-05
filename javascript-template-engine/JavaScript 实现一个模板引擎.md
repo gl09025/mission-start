@@ -119,18 +119,18 @@ function stringFormat(string) {
 
 上面的方法中都是只能一对一的替换，更复杂点的话呢？
 
-```javascript
->var string = 
->'My skills:' + 
->'<%if(this.showSkills) {%>' +
->    '<%for(var index in this.skills) {%>' + 
->    '<a href="#">' +
->    '    <%this.skills[index]%>'+
->    '</a>' +
->    '<%}%>' +
->'<%} else {%>' +
->    '<p>none</p>' +
->'<%}%>';
+```html
+var string = 
+'My skills:' + 
+'<%if(this.showSkills) {%>' +
+    '<%for(var index in this.skills) {%>' + 
+    '<a href="#">' +
+    '    <%this.skills[index]%>'+
+    '</a>' +
+    '<%}%>' +
+'<%} else {%>' +
+    '<p>none</p>' +
+'<%}%>';
 ```
 
 要将上面的字符串替换成正常的js来执行。
