@@ -119,19 +119,7 @@ function stringFormat(string) {
 
 上面的方法中都是只能一对一的替换，更复杂点的话呢？
 
-```html
-var string = 
-'My skills:' + 
-'<%if(this.showSkills) {%>' +
-    '<%for(var index in this.skills) {%>' + 
-    '<a href="#">' +
-    '    <%this.skills[index]%>'+
-    '</a>' +
-    '<%}%>' +
-'<%} else {%>' +
-    '<p>none</p>' +
-'<%}%>';
-```
+![图片](https://raw.githubusercontent.com/gl09025/image_respository/master/2018%E5%B9%B402%E6%9C%8805%E6%97%A5/%E5%AD%97%E7%AC%A6%E6%A8%A1%E6%9D%BF%E5%AD%97%E7%AC%A6%E4%B8%B2.png)
 
 要将上面的字符串替换成正常的js来执行。
 观察我们需要替换的字符串，发现有三种情况
