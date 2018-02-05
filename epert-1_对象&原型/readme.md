@@ -103,5 +103,8 @@ Car.prototype = {
 3. `bindEvent` 方法， 用于绑定事件
 4. `createNode` 方法， 用于在容器内创建节点
 
+[预览](https://gl09025.github.io/mission-start/epert-1_%E5%AF%B9%E8%B1%A1%26%E5%8E%9F%E5%9E%8B/index.html)
 
 ## 问题7： 使用木桶布局实现一个图片墙
+
+[面向对象的木桶布局结合懒加载](https://gl09025.github.io/mission-start/epert-1_%E5%AF%B9%E8%B1%A1%26%E5%8E%9F%E5%9E%8B/waterfall/index.html)

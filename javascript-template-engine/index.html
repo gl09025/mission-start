@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>字符串模板</title>
+    <style>
+        .wrap {
+            width: 1000px;
+            margin: 0 auto;
+        }
+
+        .main {
+            height: 800px;
+        }
+
+        .main::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .left {
+            float: left;
+            width: 420px;
+        }
+
+        .right {
+            float: right;
+            width: 420px;
+        }
+
+        .tcenter {
+            float: left;
+            width: 136px;
+            text-align: center;
+            margin: 100px 5px 0 5px;
+        }
+
+        .area {
+            width: 410px;
+            height: 500px;
+        }
+
+        .button-excute {
+            background-color: #0074cc;
+            font-size: 13px;
+            color: #ffffff;
+            text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+            padding: 4px 10px 4px;
+        }
+
+        #src {
+            height: 250px;
+        }
+
+        #option {
+            height: 250px;
+        }
+
+        .title {
+            border: 1px solid #0074cc;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+       
+        <h1>一个实现特定语法的简单模板</h1>
+        <div class="title">
+            <p>模板语法约定如下:</p>
+            <pre style="font-size: 15px;">
+    My skills: 
+    <%if(this.showSkills) {%>
+    <%for(var index in this.skills) {%>
+    &lt;a href="#"><%this.skills[index]%>&lt;/a&gt;
+    <%}%>
+    <%} else {%>
+    &lt;p>none&lt;/p&gt;
+    <%}%>
+            </pre>
+            <hr>
+            <p>第二个参数,使用JSON格式</p>
+            <pre>
+                    {
+                        "skills": ["js", "html", "css"],
+                        "showSkills": true
+                    }
+            </pre>
+        </div>
+        <main class="main">
+            <div class="left">
+                <p class="p medium">请输入被替换模板：</p>
+                <textarea name="src" id="src" class="area">My skills: 
+                        <%if(this.showSkills) {%>
+                            <%for(var index in this.skills) {%>
+                                <a href="#"><%this.skills[index]%></a>
+                            <%}%>
+                        <%} else {%>
+                            <p>none</p>
+                        <%}%></textarea>
+                <p>第二个参数</p>
+                <textarea name="src-option" id="option" class="area">{"skills": ["js", "html", "css"],"showSkills": true}</textarea>
+            </div>
+            <p class="tcenter">
+                <input type="button" value="执行" name="excute" class="button-excute">
+            </p>
+            <div class="right">
+                <p class="p medium">结果：</p>
+                <textarea name="dest" id="dest" class="area"></textarea>
+            </div>
+        </main>
+    </div>
+</body>
+<script src="./main.js"></script>
+
+</html>
