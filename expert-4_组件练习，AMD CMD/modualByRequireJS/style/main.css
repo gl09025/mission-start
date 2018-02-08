@@ -1,0 +1,142 @@
+body {
+    margin: 0;
+    padding-bottom: 50px;
+  }
+  
+  li {
+      list-style: none;
+  }
+  #header {
+    width: 100%;
+  }
+  
+  .container {
+    width: 960px;
+    margin: 0 auto;
+    position: relative;
+  }
+  
+  .list-wrap {
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .list-item {
+    width: 300px;
+    box-sizing: border-box;
+    position: absolute;
+    border: 1px solid #ccc;
+    padding: 10px;
+    transition: all 0.5s;
+  }
+  
+  .list-img {
+    width: 100%;
+  }
+  
+  .list-title {
+    font-size: 18px;
+    border-bottom: 1px solid #ccc;
+    margin: 10px 0;
+    padding-bottom: 5px;
+  }
+  
+  .list-intro {
+    font-size: 14px;
+    color: #999;
+    margin: 0;
+  }
+  
+  .list-link {
+    display: block;
+    text-decoration: none;
+  }
+  
+  #more {
+    width: 200px;
+    text-align: center;
+    line-height: 2.5;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin: 0 auto;
+    cursor: pointer;
+  }
+  
+  #back-top {
+    position: fixed;
+    right: 40px;
+    bottom: 50px;
+    background-color: yellowgreen;
+    color: #fff;
+    padding: 5px;
+    font-size: 16px;
+    width: 40px;
+    text-align: center;
+    line-height: 20px;
+    text-decoration: none;
+    display: none;
+  }
+  
+  #back-top.active {
+    display: block;
+    opacity: .6;
+    transition: all .4s;
+  }
+  
+  #back-top.active:hover {
+    opacity: 1;
+  }
+
+  #pic-ct{
+    position: relative;
+    width: 1208px;
+    margin: 0 auto;
+  }
+  #pic-ct .item{
+    position: absolute;
+    padding: 0 0 10px 0;
+    width: 280px;
+    margin: 10px;
+    border: 1px solid #DFDFDF;
+    background: #FFF;
+    opacity: 0;/*先让其看不见*/
+    transition: all .8s;
+  }
+  #pic-ct .item img{
+    margin: 10px;
+    width: 260px;
+  }
+  #pic-ct .item .header{
+    height: 25px;
+    margin: 0 12px;
+    border-bottom: 1px solid #DBDBDB;
+  }
+  #pic-ct .desp{
+    font-size: 12px;
+    line-height: 1.8;
+    margin: 10px 15px 0;
+    color: #777371;
+  }
+  #load{
+    display: inline-block;
+    color: #fff;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #00FF99;
+    font-weight: 700;
+  /*  font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;*/
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .clearfix:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.story_wrap {
+    text-align: center;
+}
