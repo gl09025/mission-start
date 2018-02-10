@@ -56,8 +56,8 @@ exports={
 });
 ```
 
-
 //判断当前环境为CMD AMD 或 浏览器
+
 ```javascript
 (function (name, definition, context) {
     if (typeof module != 'undefined' && module.exports) {

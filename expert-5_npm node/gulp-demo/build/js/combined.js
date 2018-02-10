@@ -1,0 +1,1 @@
+console.log("This is JS 1"),console.log("This is JS 2");

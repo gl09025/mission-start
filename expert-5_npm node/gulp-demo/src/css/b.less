@@ -1,0 +1,7 @@
+.mixin(@value) when (ispixel(@value)) {width: @value}
+.mixin(@value) when (ispixel(@value)) {height: @value}
+
+img {
+  .mixin(800px);
+  .mixin(600px)
+}
